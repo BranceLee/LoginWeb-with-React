@@ -23,6 +23,9 @@ class LoginForm extends Component {
 		this.setState({
 			errors
 		});
+		if (Object.keys(errors).length === 0) {
+			this.props.submit(this.state.data);
+		}
 	};
 
 	validate = (data) => {
@@ -36,12 +39,10 @@ class LoginForm extends Component {
 
 	render() {
 		const { data, errors } = this.state;
-		console.log(this.state.errors);
-
 		return (
 			<div>
 				<Form onSubmit={this.onSubmit}>
-					<Form.Field>
+					<Form.Field error={!!errors.email}>
 						<label htmlFor="email">Email</label>
 						<input
 							type="email"
@@ -53,7 +54,7 @@ class LoginForm extends Component {
 						/>
 						{errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
 					</Form.Field>
-					<Form.Field>
+					<Form.Field error={!!errors.password}>
 						<label htmlFor="password">password</label>
 						<input
 							type="password"
