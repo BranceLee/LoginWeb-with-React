@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react';
-import Validator from 'validator';
+import { Button, Form, Message, MessageHeader } from 'semantic-ui-react';
+import Validator from 'validator'; //校验邮箱
 
 class LoginForm extends Component {
 	state = {
 		data: {
 			email: '',
 			password: ''
-		}, //记录信息
-		lodding: false,
+		},
+		loading: false,
 		errors: {}
 	};
 
@@ -24,12 +24,16 @@ class LoginForm extends Component {
 			errors
 		});
 		if (Object.keys(errors).length === 0) {
-			this.props.submit(this.state.data);
+			this.setState({ loading: true });
+			this.props.submit(this.state.data).catch((err) => {
+				// console.log('err', err);
+				this.setState({ errors: err.response.data.errors, loading: false });
+			});
 		}
 	};
 
 	validate = (data) => {
-		const errors = {}; //清空先前状态
+		const errors = {};
 		if (!Validator.isEmail(data.email)) {
 			errors.email = 'Invalidate email address';
 		}
@@ -38,10 +42,17 @@ class LoginForm extends Component {
 	};
 
 	render() {
-		const { data, errors } = this.state;
+		const { data, errors, loading } = this.state;
+
 		return (
 			<div>
-				<Form onSubmit={this.onSubmit}>
+				<Form onSubmit={this.onSubmit} loading={loading}>
+					{errors.global && (
+						<Message negative>
+							<MessageHeader>Sth goes wrong</MessageHeader>
+							<p>Warning: {errors.global}</p>
+						</Message>
+					)}
 					<Form.Field error={!!errors.email}>
 						<label htmlFor="email">Email</label>
 						<input
