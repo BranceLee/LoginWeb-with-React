@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { applyMiddleware, createStore } from 'redux';
@@ -21,7 +21,9 @@ if (localStorage.bookworm) {
 ReactDOM.render(
 	<BrowserRouter>
 		<Provider store={store}>
-			<App />
+			{/*<Route component={App} /> 官方文档中关于updata blockers因 connect 与 route 会冲突解决, 
+		为此，在每个Route 中加入一个 location，解决跳转问题  */}
+			<Route component={App} />
 		</Provider>
 	</BrowserRouter>,
 	document.getElementById('root')
