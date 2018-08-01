@@ -7,6 +7,7 @@ import { login } from '../actions/auth';
 class Login extends Component {
 	submit = (data) => {
 		return this.props.login(data).then(() => this.props.history.push('/'));
+		//invoke thunk action 调用thunk .
 	};
 
 	render() {

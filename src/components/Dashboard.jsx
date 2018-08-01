@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 class Dashboard extends Component {
 	state = {};
 	render() {
+		const { isConfirmed } = this.props;
 		return (
 			<div>
-				<div>
-					<h1>Good Job, Let`s Start to read</h1>
-				</div>
+				{isConfirmed ? <h1>Old customer</h1> : <h1>Please Verify In Your Email</h1>}
+
 				<Button>
 					<Link to={'/'}>Back To HomePage</Link>{' '}
 				</Button>
@@ -19,8 +19,8 @@ class Dashboard extends Component {
 	}
 }
 
-// function mapStateToProps(state) {
-// 	isConfirmed: state.user.isConfirmed;
-// }
+function mapStateToProps(state) {
+	return { isConfirmed: !!state.user.isConfirmed };
+}
 
-export default connect()(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

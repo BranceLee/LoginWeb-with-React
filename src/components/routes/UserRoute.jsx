@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 
 const UserRoute = ({ isAuthenticated, component: Component, ...res }) => {
 	// 设置路由跳转访问权限
-	return <Route {...res} render={(props) => (isAuthenticated ? <Component {...props} /> : <Redirect to="/" />)} />;
+	return (
+		<Route
+			{...res}
+			render={(props) => (isAuthenticated ? <Component {...props} /> : <Redirect to="/dashboard" />)}
+		/>
+	);
 };
 
 function mapStateToProps(state) {

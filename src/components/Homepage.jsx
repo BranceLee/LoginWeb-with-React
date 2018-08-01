@@ -14,7 +14,7 @@ class Homepage extends Component {
 				<h1>Homepage</h1>
 				{this.props.isLogin ? (
 					<div>
-						<Button onClick={() => this.props.logout()}>Log out</Button>
+						<Button onClick={this.props.logout}>Log out</Button>
 						<div>
 							<Button>
 								<Link to="/dashboard">ReadMyBook</Link>
@@ -22,7 +22,11 @@ class Homepage extends Component {
 						</div>
 					</div>
 				) : (
-					<Link to="/login">Login</Link>
+					<div>
+						<Link to="/login">Login</Link>
+						<br />
+						<Link to="/signup">Sigup</Link>
+					</div>
 				)}
 			</div>
 		);
