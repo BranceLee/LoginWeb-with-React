@@ -21,3 +21,9 @@ export const logout = () => (dispatch) => {
 	localStorage.removeItem('bookworm');
 	dispatch(userLoggedOut());
 };
+
+export const confirm = (confirmToken) => (dispatch) =>
+	api.user.confirmToken(confirmToken).then((user) => {
+		localStorage.bookworm = user.token;
+		dispatch(userLoggedIn(user));
+	});

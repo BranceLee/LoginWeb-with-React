@@ -9,7 +9,7 @@ class Dashboard extends Component {
 		const { isConfirmed } = this.props;
 		return (
 			<div>
-				{isConfirmed ? <h1>Old customer</h1> : <h1>Please Verify In Your Email</h1>}
+				{isConfirmed ? <h1>Old customer</h1> : <h1> Please Verify In Your Email</h1>}
 
 				<Button>
 					<Link to={'/'}>Back To HomePage</Link>{' '}
