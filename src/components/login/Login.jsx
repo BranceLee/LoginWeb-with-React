@@ -16,6 +16,7 @@ class Login extends Component {
 				<h1>Login</h1>
 				<Link to="/">homepage</Link>
 				<LoginForm submit={this.submit} />
+				<Link to="/forgot_password">Forget Password</Link>
 			</div>
 		);
 	}

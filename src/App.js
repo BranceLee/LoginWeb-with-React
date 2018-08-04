@@ -7,7 +7,9 @@ import SignUpPage from '../src/components/signUp/SignUpPage';
 import Dashboard from '../src/components/Dashboard';
 import UserRoute from '../src/components/routes/UserRoute';
 import GuestRoute from '../src/components/routes/GuestRoute';
-import VerifyEmailRoute from '../src/components/routes/VerifyEmailRoute';
+import VerifyEmailPage from '../src/components/login/VerifyEmailPage';
+import ResetPasswordPage from '../src/components/pages/ResetPasswordPage';
+import ForgotPasswordPage from '../src/components/pages/ForgotPasswordPage';
 
 class App extends Component {
 	render() {
@@ -17,8 +19,11 @@ class App extends Component {
 				<Route location={location} exact path="/" component={Homepage} />
 				<GuestRoute location={location} exact path="/login" component={Login} />
 				<GuestRoute location={location} exact path="/signup" component={SignUpPage} />
+				{/* <GuestRoute location={location} exact path="/forgot_password" component={ResetPasswordPage} /> */}
 				<UserRoute location={location} exact path="/dashboard" component={Dashboard} />
-				<Route location={location} exact path="/confirmation/:confirmationToken" component={VerifyEmailRoute} />
+				<Route location={location} exact path="/confirmation/:confirmationToken" component={VerifyEmailPage} />
+				<GuestRoute location={location} exact path="/forgot_password" component={ForgotPasswordPage} />
+				<Route location={location} exact path="/resetpassword_confirm/:email/:token" component={ResetPasswordPage} />
 			</div>
 		);
 	}

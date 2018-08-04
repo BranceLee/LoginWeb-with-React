@@ -12,7 +12,7 @@ import { userLoggedIn } from './actions/auth';
 
 const store = createStore(RootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-//登录成功后，保持state 始终存在token ,防止刷新后丢失登录成功记录
+//登录成功后，记录Token于localStorage里 ,防止刷新后丢失登录成功记录
 if (localStorage.bookworm) {
 	const userToken = { token: localStorage.bookworm };
 	store.dispatch(userLoggedIn(userToken));

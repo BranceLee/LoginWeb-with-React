@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { sendResetToken } from '../../actions/auth';
 import { Message, Icon } from 'semantic-ui-react';
-import { confirm } from '../../actions/auth';
+import { Link } from 'react-router-dom';
 
-class VerifyEmailRoute extends Component {
+class VerifyPassword extends Component {
 	state = {
 		loading: true,
 		success: false,
@@ -13,9 +13,9 @@ class VerifyEmailRoute extends Component {
 
 	componentDidMount() {
 		this.props
-			.confirm(this.props.match.params.confirmationToken)
-			.then(() => this.setState({ success: true, loading: false, errors: null }))
-			.catch(() => this.setState({ errors: 'SomeWrong' }));
+			.sendResetToken(this.props.match.params.resetToken)
+			.then(() => this.setState({ loading: false, success: true }))
+			.catch(() => this.setState({ loading: false, success: false, errors: 'Something Went Wrong' }));
 	}
 
 	render() {
@@ -26,7 +26,7 @@ class VerifyEmailRoute extends Component {
 				!errors && (
 					<Message icon>
 						<Icon name="circle notched" loading />
-						<Message.Header>Validating your email</Message.Header>
+						<Message.Header>Validating Your Applying</Message.Header>
 					</Message>
 				)}
 				{!loading &&
@@ -34,8 +34,8 @@ class VerifyEmailRoute extends Component {
 					<Message success icon>
 						<Icon name="checkmark" />
 						<Message.Content>
-							<Message.Header>Thank you .Your account has been verified</Message.Header>
-							<Link to="/dashboard">Go to dashboard</Link>
+							<Message.Header>Your password has been changed ,You can login now !</Message.Header>
+							<Link to="/login" />
 						</Message.Content>
 					</Message>
 				)}
@@ -52,7 +52,4 @@ class VerifyEmailRoute extends Component {
 	}
 }
 
-// function mapStateToProps(state) {
-// 	return { confirmToken: state.user.confirmToken };
-// }
-export default connect(null, { confirm })(VerifyEmailRoute);
+export default connect(null, { sendResetToken })(VerifyPassword);

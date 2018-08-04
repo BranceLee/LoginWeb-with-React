@@ -63,7 +63,7 @@ class LoginForm extends Component {
 							value={data.email}
 							onChange={this.onChange}
 						/>
-						{errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
+						{errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
 					</Form.Field>
 					<Form.Field error={!!errors.password}>
 						<label htmlFor="password">password</label>
@@ -75,7 +75,7 @@ class LoginForm extends Component {
 							value={data.password}
 							onChange={this.onChange}
 						/>
-						{errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
+						{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
 					</Form.Field>
 					<Button primary>Submit</Button>
 				</Form>
