@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'semantic-ui-react';
+import { Button, Message, Card, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
@@ -9,18 +9,27 @@ class Dashboard extends Component {
 		const { isConfirmed } = this.props;
 		return (
 			<div>
-				{isConfirmed ? <h1>Old customer</h1> : <h1> Please Verify In Your Email</h1>}
+				{!isConfirmed && (
+					<Message info>
+						<Message.Header>Please verify your email to unlock</Message.Header>
+					</Message>
+				)}
 
-				<Button>
-					<Link to={'/'}>Back To HomePage</Link>{' '}
-				</Button>
+				<Card centered>
+					<Card.Content textAlign="center">
+						<Card.Header>Add Books</Card.Header>
+						<Link to="/books/new">
+							<Icon name="plus circle" size="massive" />>
+						</Link>
+					</Card.Content>
+				</Card>
 			</div>
 		);
 	}
 }
 
 function mapStateToProps(state) {
-	return { isConfirmed: !!state.user.isConfirmed };
+	return { isConfirmed: !!state.user.confirmed };
 }
 
 export default connect(mapStateToProps)(Dashboard);

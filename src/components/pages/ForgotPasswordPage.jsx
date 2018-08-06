@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Message } from 'semantic-ui-react';
 import ForgotPasswordForm from '../forms/ForgotPasswordForm';
 import { resetPasswordRequest } from '../../actions/auth';
@@ -15,7 +16,10 @@ class ForgotPasswordPage extends Component {
 		return (
 			<div>
 				{this.state.success ? (
-					<Message>Email has been sent .</Message>
+					<div>
+						<Message>Email has been sent .</Message>
+						<Link to="/login">Back</Link>
+					</div>
 				) : (
 					<ForgotPasswordForm submit={this.submit} />
 				)}

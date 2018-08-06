@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Message, MesssageHeader, MessageHeader, MessageContent } from 'semantic-ui-react';
+import { Button, Form, Message, MessageHeader, MessageContent } from 'semantic-ui-react';
 import Validator from 'validator';
 
 class ResetForm extends Component {
@@ -48,7 +48,7 @@ class ResetForm extends Component {
 	};
 
 	render() {
-		const { loading, success, data: { email, confirmPassword, password }, errors } = this.state;
+		const { loading, data: { email, confirmPassword, password }, errors } = this.state;
 		return (
 			<div>
 				<Form onSubmit={this.resetPassword} loading={loading}>
