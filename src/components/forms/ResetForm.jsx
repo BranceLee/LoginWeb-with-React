@@ -26,7 +26,6 @@ class ResetForm extends Component {
 		this.setState({ errors: errors });
 		if (Object.keys(errors).length === 0) {
 			this.setState({ loading: true });
-			debugger;
 			this.props
 				.submitResetPassword(data)
 				.catch((err) => this.setState({ errors: err.response.data.errors, loading: false }));

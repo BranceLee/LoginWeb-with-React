@@ -6,14 +6,15 @@ class SearchForm extends Component {
 	state = {
 		query: '',
 		loading: false,
-		books: {},
+		bookStore: {},
 		options: []
 	};
 
 	//选中下拉搜索菜单触发
 	onChange = (e, data) => {
 		// this.setState({ options: data.value });
-		this.props.selectBook(this.state.books[data.value]);
+		debugger;
+		this.props.selectBook(this.state.bookStore[data.value]);
 	};
 
 	searchChange = (e, data) => {
@@ -30,15 +31,16 @@ class SearchForm extends Component {
 			.then((res) => res.data.books)
 			.then((books) => {
 				const optionList = [];
+				const bookStore = {};
 				books.map((book) => {
-					books[book.goodreadsId] = book;
+					bookStore[book.goodreadsId] = book;
 					optionList.push({
 						key: book.goodreadsId,
 						value: book.goodreadsId,
 						text: book.title
 					});
 				});
-				this.setState({ books, options: optionList, books });
+				this.setState({ books, options: optionList, bookStore });
 			})
 			.catch(() => this.setState({ options: '', loading: false }));
 	};
