@@ -10,6 +10,8 @@ export default {
 		resetPassword: (data) => axios.post('/api/auth/reset_password', { data })
 	},
 	books: {
-		selectBook: (book) => axios.get('/api/books?book').then((res) => res.data.book)
+		selectBook: (book) => axios.post('/api/books', { book }).then((res) => res.data.book),
+		loadBook: () => axios.get('/api/books/loadBook').then((res) => res.data.books),
+		removeBook: (book) => axios.post('/api/books/removeBook', { book }).then((res) => res.data.books)
 	}
 };

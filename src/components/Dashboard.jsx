@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Message, Card, Icon } from 'semantic-ui-react';
+import { Message, Card, Icon } from 'semantic-ui-react';
+import BookList from './forms/BookListForm';
 import { Link } from 'react-router-dom';
+import { fetchBook } from '../actions/books';
 
 class Dashboard extends Component {
 	state = {};
+
+	componentDidMount() {
+		this.props.fetchBook();
+	}
+
 	render() {
 		const { isConfirmed } = this.props;
 		return (
@@ -23,13 +30,16 @@ class Dashboard extends Component {
 						</Link>
 					</Card.Content>
 				</Card>
+				<BookList />
 			</div>
 		);
 	}
 }
 
 function mapStateToProps(state) {
-	return { isConfirmed: !!state.user.confirmed };
+	return {
+		isConfirmed: !!state.user.confirmed
+	};
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, { fetchBook })(Dashboard);

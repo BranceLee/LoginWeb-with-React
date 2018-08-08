@@ -13,7 +13,6 @@ class SearchForm extends Component {
 	//选中下拉搜索菜单触发
 	onChange = (e, data) => {
 		// this.setState({ options: data.value });
-		debugger;
 		this.props.selectBook(this.state.bookStore[data.value]);
 	};
 
@@ -32,7 +31,7 @@ class SearchForm extends Component {
 			.then((books) => {
 				const optionList = [];
 				const bookStore = {};
-				books.map((book) => {
+				books.forEach((book) => {
 					bookStore[book.goodreadsId] = book;
 					optionList.push({
 						key: book.goodreadsId,
@@ -40,7 +39,7 @@ class SearchForm extends Component {
 						text: book.title
 					});
 				});
-				this.setState({ books, options: optionList, bookStore });
+				this.setState({ books, options: optionList, bookStore, loading: false });
 			})
 			.catch(() => this.setState({ options: '', loading: false }));
 	};

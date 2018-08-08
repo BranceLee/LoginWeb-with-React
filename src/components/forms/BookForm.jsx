@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class BookForm extends Component {
 	state = {
 		book: {
-			goodreadId: this.props.book.goodreadId,
+			goodreadsId: this.props.book.goodreadsId,
 			title: this.props.book.title,
 			authors: this.props.book.authors,
 			cover: this.props.book.covers[0],
@@ -20,7 +20,7 @@ class BookForm extends Component {
 	componentWillReceiveProps(props) {
 		this.setState({
 			book: {
-				goodreadId: props.book.goodreadId,
+				goodreadsId: props.book.goodreadsId,
 				title: props.book.title,
 				authors: props.book.authors,
 				cover: props.book.covers[0],
@@ -31,18 +31,18 @@ class BookForm extends Component {
 	}
 
 	onChange = (e) => {
-		this.setState({ book: { [e.target.name]: e.target.value } });
+		this.setState({ book: { [e.target.name]: e.target.value }, loading: false });
 	};
 
-	onSubmit = () => {
+	onSubmit = (e) => {
+		e.preventDefault();
 		const { book, errors } = this.state;
 		this.validate(book);
 		this.setState({ errors });
 		if (Object.keys(errors).length === 0) {
 			this.setState({ loading: true });
-			this.props
-				.submit(this.state.book)
-				.catch((err) => this.setState({ errors: err.response.data.errors, loading: false }));
+			this.props.addBook(this.state.book);
+			// .catch((err) => this.setState({ errors: err.response.data.errors, loading: false }));
 		}
 	};
 
@@ -97,7 +97,7 @@ class BookForm extends Component {
 									<input
 										type="text"
 										name="pages"
-										value={book.pages}
+										value={book.pages === undefined ? 'Loding ...' : book.pages}
 										onChange={this.onChange}
 										placeholder="Title"
 									/>
@@ -123,7 +123,7 @@ class BookForm extends Component {
 }
 
 BookForm.propTypes = {
-	onSubmit: PropTypes.func.isRequired,
+	addBook: PropTypes.func.isRequired,
 	book: PropTypes.shape({
 		goodreadsId: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,

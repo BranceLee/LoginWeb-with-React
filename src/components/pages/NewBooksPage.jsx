@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
+import axios from 'axios';
 import SearchForm from '../forms/SearchForm';
 import BookForm from '../forms/BookForm';
 import { connect } from 'react-redux';
@@ -11,9 +12,17 @@ class NewBooksPage extends Component {
 	};
 
 	// selectBook = (book) => this.props.selectBook(book).then(this.props.history.push('/books'));
-	selectBook = (book) => this.setState({ book });
+	selectBook = (book) => {
+		this.setState({ book });
+		axios
+			.get(`/api/books/fetchPages?goodreadsId=${book.goodreadsId}`)
+			.then((res) => res.data.pages)
+			.then((pages) => this.setState({ book: { ...book, pages } }));
+	};
 
-	addBook = (book) => console.log(book);
+	addBook = (book) => {
+		this.props.selectBook(book).then(() => this.props.history.push('/dashboard'));
+	};
 
 	render() {
 		console.log('book', this.state.book);
@@ -23,7 +32,7 @@ class NewBooksPage extends Component {
 					<h1>Add new book to your collection</h1>
 					<SearchForm selectBook={this.selectBook} />
 				</Segment>
-				{this.state.book && <BookForm onSubmit={this.selectBook} book={this.state.book} />}
+				{this.state.book && <BookForm addBook={this.addBook} book={this.state.book} />}
 			</div>
 		);
 	}
