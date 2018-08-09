@@ -4,6 +4,7 @@ import { Message, Card, Icon } from 'semantic-ui-react';
 import BookList from './forms/BookListForm';
 import { Link } from 'react-router-dom';
 import { fetchBook } from '../actions/books';
+import TopNavigation from './navigation/TopNavigation';
 
 class Dashboard extends Component {
 	state = {};
@@ -16,21 +17,25 @@ class Dashboard extends Component {
 		const { isConfirmed } = this.props;
 		return (
 			<div>
+				<TopNavigation />
 				{!isConfirmed && (
 					<Message info>
 						<Message.Header>Please verify your email to unlock</Message.Header>
 					</Message>
 				)}
-
-				<Card centered>
-					<Card.Content textAlign="center">
-						<Card.Header>Add Books</Card.Header>
-						<Link to="/books/new">
-							<Icon name="plus circle" size="massive" />>
-						</Link>
-					</Card.Content>
-				</Card>
-				<BookList />
+				{isConfirmed && (
+					<div>
+						<Card centered>
+							<Card.Content textAlign="center">
+								<Card.Header>Add Books</Card.Header>
+								<Link to="/books/new">
+									<Icon name="plus circle" size="massive" />>
+								</Link>
+							</Card.Content>
+						</Card>
+						<BookList />
+					</div>
+				)}
 			</div>
 		);
 	}

@@ -3,6 +3,7 @@ import { Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import SearchForm from '../forms/SearchForm';
 import BookForm from '../forms/BookForm';
+import TopNavigation from '../navigation/TopNavigation';
 import { connect } from 'react-redux';
 import { selectBook } from '../../actions/books';
 
@@ -11,7 +12,6 @@ class NewBooksPage extends Component {
 		book: null
 	};
 
-	// selectBook = (book) => this.props.selectBook(book).then(this.props.history.push('/books'));
 	selectBook = (book) => {
 		this.setState({ book });
 		axios
@@ -28,6 +28,7 @@ class NewBooksPage extends Component {
 		console.log('book', this.state.book);
 		return (
 			<div>
+				<TopNavigation />
 				<Segment>
 					<h1>Add new book to your collection</h1>
 					<SearchForm selectBook={this.selectBook} />

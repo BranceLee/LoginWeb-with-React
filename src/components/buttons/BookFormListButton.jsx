@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
-import { removeBook } from '../../actions/books';
+import { removeBook, fetchBook } from '../../actions/books';
 
 class BookFormListButton extends Component {
-	state = {};
+	state = {
+		book: this.props
+	};
 
 	deleteBook = () => {
 		const { book } = this.props;
-		this.props.removeBook(book);
+		this.props.removeBook(book).then(() => this.props.fetchBook());
 	};
 
 	render() {
-		console.log(this.props.book);
 		return (
 			<Button.Group>
 				<Button>Like</Button>
@@ -23,4 +24,4 @@ class BookFormListButton extends Component {
 	}
 }
 
-export default connect(null, { removeBook })(BookFormListButton);
+export default connect(null, { removeBook, fetchBook })(BookFormListButton);

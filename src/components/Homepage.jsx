@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import PropType from 'prop-types';
 import * as action from '../actions/auth';
+import HomePageContainer from './pages/homePage/HomePageContainer';
 
 class Homepage extends Component {
 	state = {};
@@ -11,7 +12,7 @@ class Homepage extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Homepage</h1>
+				<HomePageContainer />
 				{this.props.isLogin ? (
 					<div>
 						<Button onClick={this.props.logout}>Log out</Button>

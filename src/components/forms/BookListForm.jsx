@@ -7,10 +7,9 @@ import CardButton from '../buttons/BookFormListButton';
 class BookListForm extends Component {
 	state = {};
 
-	removeBook = () => {};
-
 	render() {
 		const { books } = this.props;
+		console.log('book', this.props.book);
 		return (
 			<Segment>
 				{Object.values(books).map((book) => (

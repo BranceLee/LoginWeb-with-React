@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import Homepage from '../src/components/Homepage';
@@ -12,15 +11,13 @@ import GuestRoute from '../src/components/routes/GuestRoute';
 import VerifyEmailPage from '../src/components/login/VerifyEmailPage';
 import ResetPasswordPage from '../src/components/pages/ResetPasswordPage';
 import ForgotPasswordPage from '../src/components/pages/ForgotPasswordPage';
-import TopNavigation from './components/navigation/TopNavigation';
 import NewBooks from './components/pages/NewBooksPage';
 
 class App extends Component {
 	render() {
 		const { location } = this.props;
 		return (
-			<div className="ui container">
-				{this.props.isAuthenticated && <TopNavigation />}
+			<div>
 				<Route location={location} exact path="/" component={Homepage} />
 				<GuestRoute location={location} exact path="/login" component={Login} />
 				<GuestRoute location={location} exact path="/signup" component={SignUpPage} />
@@ -43,14 +40,7 @@ class App extends Component {
 App.propTypes = {
 	location: PropTypes.shape({
 		pathname: PropTypes.string.isRequired
-	}).isRequired,
-	isAuthenticated: PropTypes.bool.isRequired
+	}).isRequired
 };
 
-function mapStateToProps(state) {
-	return {
-		isAuthenticated: !!state.user.email
-	};
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
