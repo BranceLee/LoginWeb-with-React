@@ -8,7 +8,7 @@ class HomePageLayout extends Component {
 	state = {};
 	render() {
 		return (
-			<Segment style={{ padding: '8em 0' }} vertical>
+			<Segment style={{ padding: '6em 0' }} vertical>
 				<Grid container>
 					<Grid.Row>
 						<Grid.Column width={11}>
