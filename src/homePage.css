@@ -1,15 +1,60 @@
 #home-heading {
-	background: url('./img/homePageBackground.jpg');
+	background: url('./img/homepage1.jpg');
 	min-height: 620px;
 	background-size: cover;
 	background-attachment: fixed;
 }
 
 .dark-overlay {
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(0, 0, 0, 0.2);
 	min-height: 620px;
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100%;
+}
+
+.dashboard-background {
+	background: url('./img/bookStore.jpg');
+	background-size: cover;
+	height: 100vh;
+	z-index: 2;
+}
+.dashboard-opacity {
+	z-index: 1;
+	width: 87%;
+	margin:0 auto;
+	opacity: 0.92;
+}
+
+.bookStoreForm {
+	width: 100%;
+	justify-content: center;
+	opacity: 1;
+}
+
+.newBookPage {
+	background: url('./img/bookStore.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+
+.newBookContainer {
+	width: 80%;
+	height: 100vh;
+	margin: 0 auto;
+}
+
+.addBookForm {
+	width: 80%;
+	height: 100%;
+	margin: 60px auto;
+}
+
+.addBookCover {
+	width: 170px;
+	height: 200px;
+	margin: 1.5rem 2rem;
+	border: 3px solid cornsilk;
+	border-radius: 2%;
 }

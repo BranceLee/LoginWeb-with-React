@@ -27,9 +27,9 @@ class NewBooksPage extends Component {
 	render() {
 		console.log('book', this.state.book);
 		return (
-			<div>
+			<div className="newBookPage">
 				<TopNavigation />
-				<Segment>
+				<Segment style={{ width: '80%', margin: '0 auto' }}>
 					<h1>Add new book to your collection</h1>
 					<SearchForm selectBook={this.selectBook} />
 				</Segment>

@@ -15,7 +15,7 @@ import {
 	Segment,
 	Sidebar
 } from 'semantic-ui-react';
-import '../../../homePage.css';
+
 import HomePageLayout from './HomePageLayout';
 import HomePageHeading from './HomePageHeading';
 import * as action from '../../../actions/auth';

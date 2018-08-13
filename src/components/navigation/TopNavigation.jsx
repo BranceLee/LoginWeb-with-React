@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Menu, Dropdown, Image } from 'semantic-ui-react';
+import { Menu, Dropdown, Image, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import gravatarUrl from 'gravatar-url';
@@ -8,8 +8,11 @@ import * as action from '../../actions/auth';
 
 const TopNavigation = ({ user, logout, hasBooks }) => (
 	<Menu secondary pointing>
-		<Menu.Item as={Link} to="/dashboard">
-			Dashboard
+		<Menu.Item as={Link} to="/dashboard" style={{ color: '#fff' }}>
+			<Button inverted>
+				<Icon name="exchange" />
+				<Icon name="home" />
+			</Button>
 		</Menu.Item>
 
 		<Menu.Menu position="right">

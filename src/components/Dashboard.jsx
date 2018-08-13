@@ -16,26 +16,28 @@ class Dashboard extends Component {
 	render() {
 		const { isConfirmed } = this.props;
 		return (
-			<div>
-				<TopNavigation />
-				{!isConfirmed && (
-					<Message info>
-						<Message.Header>Please verify your email to unlock</Message.Header>
-					</Message>
-				)}
-				{isConfirmed && (
-					<div>
-						<Card centered>
-							<Card.Content textAlign="center">
-								<Card.Header>Add Books</Card.Header>
-								<Link to="/books/new">
-									<Icon name="plus circle" size="massive" />>
-								</Link>
-							</Card.Content>
-						</Card>
-						<BookList />
-					</div>
-				)}
+			<div className="dashboard-background">
+				<div className="dashboard-opacity">
+					<TopNavigation />
+					{!isConfirmed && (
+						<Message info>
+							<Message.Header>Please verify your email to unlock</Message.Header>
+						</Message>
+					)}
+					{isConfirmed && (
+						<div>
+							<Card centered>
+								<Card.Content textAlign="center">
+									<Card.Header>Add Books</Card.Header>
+									<Link to="/books/new">
+										<Icon name="add circle" size="massive" color="olive" />>
+									</Link>
+								</Card.Content>
+							</Card>
+							<BookList />
+						</div>
+					)}
+				</div>
 			</div>
 		);
 	}

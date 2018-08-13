@@ -64,12 +64,12 @@ class BookForm extends Component {
 		const { loading, book, errors } = this.state;
 		return (
 			<div>
-				<Form onSubmit={this.onSubmit} loading={loading}>
+				<Form className="addBookForm" onSubmit={this.onSubmit} loading={loading}>
 					<Grid columns={2} stackable>
 						<Grid.Row>
 							<Grid.Column>
 								<Form.Field>
-									<label>Title</label>
+									<label style={{ color: '#fff' }}>Title</label>
 									<input
 										type="text"
 										name="tilte"
@@ -77,11 +77,11 @@ class BookForm extends Component {
 										onChange={this.onChange}
 										placeholder="Title"
 									/>
-									{errors.title && <p style={'red'}>{errors.title}</p>}
+									{errors.title && <p style={{ color: 'red' }}>{errors.title}</p>}
 								</Form.Field>
 
 								<Form.Field>
-									<label>Author</label>
+									<label style={{ color: '#fff' }}>Author</label>
 									<input
 										type="text"
 										name="authors"
@@ -89,11 +89,11 @@ class BookForm extends Component {
 										onChange={this.onChange}
 										placeholder="Author"
 									/>
-									{errors.authors && <p style={'red'}>{errors.authors}</p>}
+									{errors.authors && <p style={{ color: 'red' }}>{errors.authors}</p>}
 								</Form.Field>
 
 								<Form.Field>
-									<label>Pages</label>
+									<label style={{ color: '#fff' }}>Pages</label>
 									<input
 										type="text"
 										name="pages"
@@ -101,12 +101,12 @@ class BookForm extends Component {
 										onChange={this.onChange}
 										placeholder="Title"
 									/>
-									{errors.pages && <p style={'red'}>{errors.pages}</p>}
+									{errors.pages && <p style={{ color: 'red' }}>{errors.pages}</p>}
 								</Form.Field>
 							</Grid.Column>
 
 							<Grid.Column>
-								<Image src={book.cover} />
+								<Image className="addBookCover" src={book.cover} />
 								{this.state.covers.length > 1 && <a onClick={this.changeCover}>更换封面</a>}
 							</Grid.Column>
 						</Grid.Row>
