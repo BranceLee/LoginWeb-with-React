@@ -9,7 +9,7 @@ import * as action from '../../actions/auth';
 const TopNavigation = ({ user, logout, hasBooks }) => (
 	<Menu secondary pointing>
 		<Menu.Item as={Link} to="/dashboard" style={{ color: '#fff' }}>
-			<Button inverted>
+			<Button primary>
 				<Icon name="exchange" />
 				<Icon name="home" />
 			</Button>
