@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-	Button,
-	Container,
-	Divider,
-	Grid,
-	Header,
-	Icon,
-	Image,
-	List,
-	Menu,
-	Responsive,
-	Segment,
-	Sidebar
-} from 'semantic-ui-react';
-
+import { Button, Container, Menu, Segment } from 'semantic-ui-react';
 import HomePageLayout from './HomePageLayout';
 import HomePageHeading from './HomePageHeading';
 import * as action from '../../../actions/auth';
@@ -30,9 +16,9 @@ class HomePageContainer extends Component {
 					<div className="dark-overlay">
 						<Menu fixed="top" size="large" inverted style={{ opacity: '0.79' }}>
 							<Container>
-								<Menu.Item as="a">Homepage </Menu.Item>
-								<Menu.Item as="a">New </Menu.Item>
-								<Menu.Item as="a">Careers </Menu.Item>
+								<Menu.Item>Homepage </Menu.Item>
+								<Menu.Item>New </Menu.Item>
+								<Menu.Item>Careers </Menu.Item>
 								<Menu.Item position="right">
 									{!isLogin ? (
 										<Button inverted>
@@ -43,7 +29,7 @@ class HomePageContainer extends Component {
 											Logout
 										</Button>
 									)}
-									<Button as="a" inverted primary style={{ marginLeft: '0.5em' }}>
+									<Button inverted primary style={{ marginLeft: '0.5em' }}>
 										<Link to="/signup">Sigup</Link>
 									</Button>
 								</Menu.Item>
@@ -55,6 +41,7 @@ class HomePageContainer extends Component {
 					</div>
 				</div>
 				<HomePageLayout />
+				<div style={{ marginTop: '100px' }} />
 			</div>
 		);
 	}

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Image } from 'semantic-ui-react';
-import imgURL from '../../../../img/Lee.jpg';
+import { Image, Divider } from 'semantic-ui-react';
+import imgURL from '../../../../img/log.jpg';
 
 class LayoutRight extends Component {
 	state = {};
 	render() {
 		return (
-			<div>
-				<Image bordered rounded size="large" src={imgURL} />
+			<div className="rightSideJpg">
+				<Image src={imgURL} />
 			</div>
 		);
 	}

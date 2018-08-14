@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Divider } from 'semantic-ui-react';
 
 class LayoutLeft extends Component {
 	state = {};
@@ -8,23 +8,20 @@ class LayoutLeft extends Component {
 			<div>
 				<Grid container>
 					<Grid.Row>
-						<Grid.Column width={8}>
-							<Header as="h3" style={{ fontSize: '1.5em' }}>
-								We Make Bananas That Can Dance
-							</Header>
-							<p style={{ fontSize: '1.33em' }}>
-								Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-								bioengineered.
-							</p>
-						</Grid.Column>
-						<Grid.Column width={8}>
-							<Header as="h3" style={{ fontSize: '1.5em' }}>
-								What are your friends reading?
-							</Header>
-							<p style={{ fontSize: '1.33em' }}>
-								Chances are your friends are discussing their favorite (and least favorite) books on
-								Goodreads.
-							</p>
+						<Grid.Column width={14}>
+							<div className="headerIntroduction">We Make Bananas That Can Dance</div>
+							<div className="drawLine" />
+							<div>
+								<div className="headerIntroductionAd">
+									Become a Medium member for $5/month or $50/year and get unlimited access to the
+									smartest writers and biggest ideas you won’t find anywhere else.
+								</div>
+								<div className="headerIntroductionAd">
+									Your favorite writers, thinkers, and experts are publishing their best work on
+									Medium. And you’ll get access to all of it as a member. Here’s a sample of the
+									diverse, bold thinking you can expect:
+								</div>
+							</div>
 						</Grid.Column>
 					</Grid.Row>
 				</Grid>

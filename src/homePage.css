@@ -23,7 +23,7 @@
 .dashboard-opacity {
 	z-index: 1;
 	width: 87%;
-	margin:0 auto;
+	margin: 0 auto;
 	opacity: 0.92;
 }
 
@@ -57,4 +57,53 @@
 	margin: 1.5rem 2rem;
 	border: 3px solid cornsilk;
 	border-radius: 2%;
+}
+
+.rightSideJpg {
+	width: 450px;
+	height: 400px;
+	margin-top: -50px;
+}
+
+.headerIntroduction {
+	font-family: medium-marketing-display-font, Georgia, Cambria, "Times New Roman", Times, serif !important;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 1.2;
+}
+
+.headerIntroductionAd {
+	font-size: 20px;
+	font-weight: 400;
+	word-spacing: 0.1rem;
+	line-height: 1.2;
+	width: 90%;
+	margin: 40px 10px 10px 75px;
+}
+
+.drawLine {
+	height: 1px;
+	width: 400px;
+	border-bottom: 1px solid black;
+	transform: rotate(90deg);
+	position: relative;
+	top: 220px;
+	right: 150px;
+}
+
+.mainContent {
+	background-color: #e8f3ec;
+	margin: 0;
+	width: 100% !important;
+	height: 115vh;
+	overflow: hidden;
+}
+
+.feedbackForm {
+	width: 90%;
+	box-shadow: 1px 2px 4px;
+	z-index: 3;
+	margin: 30px auto;
+	padding-top: 2px;
 }
