@@ -1,6 +1,6 @@
 import React from 'react';
 import img from '../../../../img/Lee.jpg';
-import { Segment, Header, Image, Container, Icon } from 'semantic-ui-react';
+import { Segment, Header, Image, Container, Icon, Label } from 'semantic-ui-react';
 
 const BookContent = () => {
 	return (
@@ -9,7 +9,7 @@ const BookContent = () => {
 				as="h1"
 				textAlign="justified"
 				size="large"
-				style={{ margin: '20px 140px', paddingTop: '80px', width: '650px' }}
+				style={{ margin: '0px 140px 15px', paddingTop: '80px', width: '650px' }}
 			>
 				<Icon size="big" name="cubes" />
 				<Header.Content>

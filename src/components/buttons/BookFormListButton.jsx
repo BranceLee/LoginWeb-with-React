@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import { removeBook, fetchBook } from '../../actions/books';
 
 class BookFormListButton extends Component {
@@ -16,9 +16,15 @@ class BookFormListButton extends Component {
 	render() {
 		return (
 			<Button.Group>
-				<Button>Like</Button>
-				<Button.Or text="ou" />
-				<Button onClick={this.deleteBook}>Delete</Button>
+				<Button>
+					<a href="https://www.amazon.com/">
+						<Icon name="cart arrow down" />
+					</a>
+				</Button>
+				<Button.Or text="丨" />
+				<Button onClick={this.deleteBook}>
+					<Icon name="trash alternate" />
+				</Button>
 			</Button.Group>
 		);
 	}

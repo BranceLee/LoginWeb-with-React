@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import HomePageContainer from './HomePageContainer';
 import LayoutLeft from './homePageLayout/LayoutLeft';
 import LayoutRight from './homePageLayout/LayoutRight';
-import { Segment, Grid, Header, Image, Container, Icon } from 'semantic-ui-react';
+import { Segment, Grid } from 'semantic-ui-react';
 import FeedbackForm from './homePageLayout/FeedbackForm';
 import BookLibrary from './homePageLayout/BookLibray';
 import BookContent from './homePageLayout/BookContent';

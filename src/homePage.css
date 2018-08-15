@@ -33,12 +33,8 @@
 	margin: 0 auto;
 }
 
-.bookStoreForm {
-}
-
 .newBookPage {
-	background: url('./img/bookStore.jpg');
-	background-size: cover;
+	background: #e9e9e2;
 	height: 100vh;
 }
 
@@ -129,4 +125,28 @@ h4 {
 
 .bookCard {
 	width: 300px;
+}
+
+.loginForm {
+	position: fixed;
+	top: 130px;
+	width: 350px;
+	min-width: 300px;
+	height: 400px;
+}
+
+.loginLeft {
+	position: relative;
+	height: 100vh;
+}
+
+.loginLeftContainer {
+	position: absolute;
+	width: 80%;
+	height: 70%;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }

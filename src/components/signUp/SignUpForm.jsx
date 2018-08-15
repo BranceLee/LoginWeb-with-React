@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Checkbox } from 'semantic-ui-react';
 import Validator from 'validator';
 
 class SignUpForm extends Component {
@@ -70,6 +70,9 @@ class SignUpForm extends Component {
 							onChange={this.onChange}
 						/>
 						{errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
+					</Form.Field>
+					<Form.Field>
+						<Checkbox label="I agree to the Terms and Conditions" />
 					</Form.Field>
 					<Button>Sign Up</Button>
 				</Form>

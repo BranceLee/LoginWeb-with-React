@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Feed, Segment, Icon, Header, Divider, Breadcrumb, Form, Button } from 'semantic-ui-react';
+import { Feed, Segment, Icon, Divider, Breadcrumb, Form, Button } from 'semantic-ui-react';
 import axios from 'axios';
 
 class FeedbackForm extends Component {
@@ -33,6 +33,7 @@ class FeedbackForm extends Component {
 											overFlow: 'hidden',
 											marginTop: '10px'
 										}}
+										alt="load fail"
 										src={comment.image || ''}
 									/>
 								</Feed.Label>

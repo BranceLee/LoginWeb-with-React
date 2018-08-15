@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Header, Divider } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 
 class LayoutLeft extends Component {
 	state = {};

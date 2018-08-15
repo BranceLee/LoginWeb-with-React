@@ -66,7 +66,7 @@ class LoginForm extends Component {
 						{errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
 					</Form.Field>
 					<Form.Field error={!!errors.password}>
-						<label htmlFor="password">password</label>
+						<label htmlFor="password">Password</label>
 						<input
 							type="password"
 							id="password"
@@ -77,6 +77,7 @@ class LoginForm extends Component {
 						/>
 						{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
 					</Form.Field>
+
 					<Button primary>Submit</Button>
 				</Form>
 			</div>

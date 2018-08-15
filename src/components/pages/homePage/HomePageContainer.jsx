@@ -35,7 +35,7 @@ class HomePageContainer extends Component {
 								</Menu.Item>
 							</Container>
 						</Menu>
-						<Segment textAlign="center" style={{ minHeight: 620, padding: '1em 0em' }} vertical>
+						<Segment textAlign="center" style={{ padding: '1em 0em' }} vertical>
 							<HomePageHeading />
 						</Segment>
 					</div>
