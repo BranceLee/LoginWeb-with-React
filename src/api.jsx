@@ -13,5 +13,9 @@ export default {
 		selectBook: (book) => axios.post('/api/books', { book }).then((res) => res.data.book),
 		loadBook: () => axios.get('/api/books/loadBook').then((res) => res.data.books),
 		removeBook: (book) => axios.post('/api/books/removeBook', { book }).then((res) => res.data.books)
+	},
+	comments: {
+		addComment: (comment) => axios.post('/api/comments/addcomment', { data: comment }).then((res) => res.data),
+		getComment: () => axios.get('/api/comments').then((res) => res.data)
 	}
 };

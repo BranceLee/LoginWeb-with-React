@@ -1,17 +1,48 @@
 import React, { Component } from 'react';
-import { Feed, Segment, Icon, Divider, Breadcrumb, Form, Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Feed, Segment, Icon, Divider, Breadcrumb, Form, Button, Header } from 'semantic-ui-react';
 import axios from 'axios';
+import PropType from 'prop-types';
+import { addComment, getComment } from '../../../../actions/comment';
 
 class FeedbackForm extends Component {
 	state = {
-		comment: []
+		comments: [],
+		newComment: '',
+		errors: ''
+	};
+
+	InputComment = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+
+	submitComment = () => {
+		const { newComment } = this.state;
+		if (newComment === '') {
+			this.setState({ errors: 'You must forget to write something ^` `^' });
+		} else {
+			this.props
+				.addComment({
+					comment: {
+						summary: newComment,
+						email: this.props.email,
+						date: '2018-8-18'
+					}
+				})
+				.then(() => this.props.getComment())
+				.then(this.setState({ newComment: '' }))
+				.catch((err) => this.setState({ errors: 'WRONG REQUEST' }));
+			this.setState({ errors: '' });
+		}
 	};
 
 	componentDidMount() {
-		axios.get('/api/comments').then((res) => res.data).then((result) => this.setState({ comment: result.data }));
+		this.props.getComment().catch(() => console.log('wrong Load'));
 	}
 
 	render() {
+		const { errors } = this.state;
+		const { comments = [] } = this.props;
 		return (
 			<div className="feedbackForm">
 				<Breadcrumb>
@@ -20,7 +51,7 @@ class FeedbackForm extends Component {
 					</Breadcrumb.Section>
 				</Breadcrumb>
 				<Divider />
-				{this.state.comment.map((comment, index) => (
+				{comments.map((comment, index) => (
 					<Segment key={index}>
 						<Feed>
 							<Feed.Event>
@@ -55,12 +86,30 @@ class FeedbackForm extends Component {
 					</Segment>
 				))}
 				<Form reply>
-					<Form.TextArea rows="5" />
-					<Button content="Add Reply" labelPosition="left" icon="edit" primary />
+					<Form.TextArea
+						value={this.state.newComment}
+						error={!!errors}
+						rows="5"
+						onChange={this.InputComment}
+						name="newComment"
+					/>
+					{!!errors && <p style={{ color: 'red' }}>{errors}</p>}
+					<Button onClick={this.submitComment} content="Add Reply" labelPosition="left" icon="edit" primary />
 				</Form>
 			</div>
 		);
 	}
 }
 
-export default FeedbackForm;
+function mapStateToProps(state) {
+	return {
+		email: state.user.email,
+		comments: state.comments.data
+	};
+}
+
+FeedbackForm.PropTypes = {
+	email: PropType.string.isRequired
+};
+
+export default connect(mapStateToProps, { addComment, getComment })(FeedbackForm);

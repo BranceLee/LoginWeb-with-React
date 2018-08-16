@@ -17,7 +17,7 @@ class BookFormListButton extends Component {
 		return (
 			<Button.Group>
 				<Button>
-					<a href="https://www.amazon.com/">
+					<a href={`https://www.goodreads.com/book/title?id=${this.props.book.title}`}>
 						<Icon name="cart arrow down" />
 					</a>
 				</Button>
