@@ -5,6 +5,7 @@ class LoginLeftLayout extends Component {
 	state = {
 		data: [ 1, 1, 1 ]
 	};
+
 	render() {
 		return (
 			<div className="loginLeft">

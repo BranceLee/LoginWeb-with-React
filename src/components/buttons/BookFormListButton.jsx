@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Popup } from 'semantic-ui-react';
 import { removeBook, fetchBook } from '../../actions/books';
 
 class BookFormListButton extends Component {
@@ -16,11 +16,22 @@ class BookFormListButton extends Component {
 	render() {
 		return (
 			<Button.Group>
-				<Button>
-					<a href={`https://www.goodreads.com/book/title?id=${this.props.book.title}`}>
-						<Icon name="cart arrow down" />
-					</a>
-				</Button>
+				<Popup
+					trigger={
+						<Button>
+							<a
+								href={`https://www.goodreads.com/book/title?id=${this.props.book.title}`}
+								target="_blank"
+							>
+								<Icon name="cart arrow down" />
+							</a>
+						</Button>
+					}
+					header="Shop online"
+					content="Buy the book now "
+					on={[ 'hover', 'click' ]}
+				/>
+
 				<Button.Or text="丨" />
 				<Button onClick={this.deleteBook}>
 					<Icon name="trash alternate" />
