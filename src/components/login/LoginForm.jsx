@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, Message, MessageHeader } from 'semantic-ui-react';
+import { Button, Form, Message, MessageHeader, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import Validator from 'validator'; //校验邮箱
 
 class LoginForm extends Component {
@@ -77,8 +78,9 @@ class LoginForm extends Component {
 						/>
 						{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
 					</Form.Field>
-
-					<Button primary>Submit</Button>
+					<Button primary>
+						<Icon name="paper plane outline" />Submit
+					</Button>
 				</Form>
 			</div>
 		);

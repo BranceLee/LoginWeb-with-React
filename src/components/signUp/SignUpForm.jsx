@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, Checkbox } from 'semantic-ui-react';
+import { Button, Form, Checkbox, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import Validator from 'validator';
 
 class SignUpForm extends Component {
@@ -74,8 +75,15 @@ class SignUpForm extends Component {
 					<Form.Field>
 						<Checkbox label="I agree to the Terms and Conditions" />
 					</Form.Field>
-					<Button>Sign Up</Button>
+					<Button primary>
+						<Icon name="send" /> Sign Up
+					</Button>
 				</Form>
+				<div>
+					<Link style={{ float: 'right' }} to="/">
+						Homepage
+					</Link>
+				</div>
 			</div>
 		);
 	}

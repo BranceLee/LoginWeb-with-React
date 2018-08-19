@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grid, } from 'semantic-ui-react';
+import { Segment, Icon } from 'semantic-ui-react';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
@@ -15,29 +15,27 @@ class Login extends Component {
 	render() {
 		return (
 			<div className="loginContainer">
-				<Grid>
-					<Grid.Row>
-						<Grid.Column width={10}>
-							<LoginLeftLayout />
-							<Container />
-						</Grid.Column>
-						<Grid.Column width={6} textAlign="left">
-							<div className="loginForm">
-								<Container>
-									<h1>Login</h1>
-									<Link to="/">Homepage</Link>
-									<LoginForm submit={this.submit} />
-									<Link
-										style={{ display: 'block', width: '135px', marginTop: '10px' }}
-										to="/forgot_password"
-									>
-										Forget Password
-									</Link>
-								</Container>
+				<div className="loginForm">
+					<Segment color="blue">
+						<div className="loginFormBorder">
+							<h1>
+								<Icon name="address card outline" /> Login
+							</h1>
+							<LoginForm submit={this.submit} />
+							<div style={{ marginTop: '1rem' }}>
+								<Link
+									style={{ display: 'inlineBlock', width: '135px', paddingTop: '10px' }}
+									to="/forgot_password"
+								>
+									Forget Password
+								</Link>
+								<Link style={{ float: 'right' }} to="/">
+									Homepage
+								</Link>
 							</div>
-						</Grid.Column>
-					</Grid.Row>
-				</Grid>
+						</div>
+					</Segment>
+				</div>
 			</div>
 		);
 	}

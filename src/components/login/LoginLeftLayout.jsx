@@ -1,32 +1,49 @@
 import React, { Component } from 'react';
-import { Item, Image, Container } from 'semantic-ui-react';
+import { Item, Image, Container, Rating, Segment, Divider, Grid } from 'semantic-ui-react';
+import { data } from '../../utils/textData';
 
 class LoginLeftLayout extends Component {
 	state = {
-		data: [ 1, 1, 1 ]
+		data: data
 	};
 
 	render() {
+		console.log('data', data);
 		return (
 			<div className="loginLeft">
 				<div className="loginLeftContainer">
 					<Container>
 						<Item.Group>
 							{this.state.data.map((item, key) => (
-								<Item key={key} style={{}}>
-									<Item.Content>
-										<Item.Header as="a">Header</Item.Header>
-										<Item.Meta>Description</Item.Meta>
-										<Item.Description>
-											<Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
-										</Item.Description>
-										<Item.Extra>Additional Details</Item.Extra>
-									</Item.Content>
-									<Item.Image
-										size="small"
-										src="https://react.semantic-ui.com/images/wireframe/image.png"
-									/>
-								</Item>
+								<Segment key={key} style={{ margin: 0 }}>
+									<Grid>
+										<Grid.Row>
+											<Grid.Column width={4}>
+												<Item.Image size="small" src={item.src} />
+											</Grid.Column>
+											<Grid.Column width={12}>
+												<Item>
+													<Item.Content>
+														<Item.Header as="h2">{item.header}</Item.Header>
+														<Item.Meta>{`作者： ${item.author}`}</Item.Meta>
+														<Item.Content>{`内容简介：  ${item.description}`}</Item.Content>
+														<br />
+														<Item.Content>
+															评价：
+															<Rating
+																disabled
+																icon="star"
+																defaultRating={4}
+																maxRating={5}
+															/>
+															<span> {item.rating}</span>
+														</Item.Content>
+													</Item.Content>
+												</Item>
+											</Grid.Column>
+										</Grid.Row>
+									</Grid>
+								</Segment>
 							))}
 						</Item.Group>
 					</Container>
