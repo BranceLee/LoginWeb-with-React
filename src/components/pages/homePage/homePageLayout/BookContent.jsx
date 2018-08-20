@@ -1,6 +1,6 @@
 import React from 'react';
 import img from '../../../../img/Lee.jpg';
-import { Segment, Header, Image, Container, Icon, Label } from 'semantic-ui-react';
+import { Segment, Header, Image, Container, Icon } from 'semantic-ui-react';
 
 const BookContent = () => {
 	return (

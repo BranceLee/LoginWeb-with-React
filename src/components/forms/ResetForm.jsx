@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Message, MessageHeader, MessageContent } from 'semantic-ui-react';
+import { Button, Form, Message, MessageHeader, MessageContent, Icon } from 'semantic-ui-react';
 import Validator from 'validator';
 
 class ResetForm extends Component {
@@ -50,49 +50,58 @@ class ResetForm extends Component {
 		const { loading, data: { email, confirmPassword, password }, errors } = this.state;
 		return (
 			<div>
-				<Form onSubmit={this.resetPassword} loading={loading}>
-					{errors.global && (
-						<Message negative>
-							<MessageHeader>Somthing goes Wrong</MessageHeader>
-							<MessageContent>{errors.global}</MessageContent>
-						</Message>
-					)}
-					<Form.Field>
-						<label>Email</label>
-						<input
-							type="email"
-							value={email}
-							name="email"
-							id="email"
-							readOnly="readOnly"
-							onChange={(e) => this.onChange(e)}
-						/>
-					</Form.Field>
-					{errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-					<Form.Field>
-						<label>Password</label>
-						<input
-							type="password"
-							value={password}
-							name="password"
-							id="password"
-							onChange={(e) => this.onChange(e)}
-						/>
-					</Form.Field>
-					{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-					<Form.Field>
-						<label>confirmPassword</label>
-						<input
-							type="password"
-							value={confirmPassword}
-							name="confirmPassword"
-							id="confirmPassword"
-							onChange={(e) => this.onChange(e)}
-						/>
-					</Form.Field>
-					{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-					<Button primary>ResetPassword</Button>
-				</Form>
+				<div className="forgotPasswordContainer">
+					<div className="forgotPasswordForm">
+						<div className="forgotPasswordBorder">
+							<h1>
+								<Icon name="address card outline" /> Reset Password
+							</h1>
+							<Form onSubmit={this.resetPassword} loading={loading}>
+								{errors.global && (
+									<Message negative>
+										<MessageHeader>Somthing goes Wrong</MessageHeader>
+										<MessageContent>{errors.global}</MessageContent>
+									</Message>
+								)}
+								<Form.Field>
+									<label>Email</label>
+									<input
+										type="email"
+										value={email}
+										name="email"
+										id="email"
+										readOnly="readOnly"
+										onChange={(e) => this.onChange(e)}
+									/>
+								</Form.Field>
+								{errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+								<Form.Field>
+									<label>Password</label>
+									<input
+										type="password"
+										value={password}
+										name="password"
+										id="password"
+										onChange={(e) => this.onChange(e)}
+									/>
+								</Form.Field>
+								{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+								<Form.Field>
+									<label>confirmPassword</label>
+									<input
+										type="password"
+										value={confirmPassword}
+										name="confirmPassword"
+										id="confirmPassword"
+										onChange={(e) => this.onChange(e)}
+									/>
+								</Form.Field>
+								{errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+								<Button primary>ResetPassword</Button>
+							</Form>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}

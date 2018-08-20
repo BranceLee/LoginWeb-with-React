@@ -4,7 +4,6 @@ import { Segment, Icon } from 'semantic-ui-react';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
-import LoginLeftLayout from './LoginLeftLayout';
 
 class Login extends Component {
 	submit = (data) => {

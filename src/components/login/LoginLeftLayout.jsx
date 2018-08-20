@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Item, Image, Container, Rating, Segment, Divider, Grid } from 'semantic-ui-react';
+import { Item, Container, Rating, Segment, Grid } from 'semantic-ui-react';
 import { data } from '../../utils/textData';
 
 class LoginLeftLayout extends Component {

@@ -34,13 +34,13 @@ class Homepage extends Component {
 	}
 }
 
-// Homepage.propTypes = {
-// 	isLogin: PropType.bool.isRequired,
-// 	logout: PropType.func.isRequired
-// };
+Homepage.propTypes = {
+	isLogin: PropType.bool.isRequired,
+	logout: PropType.func.isRequired
+};
 
-// function mapStateToProps(state) {
-// 	return { isLogin: !!state.user.token };
-// }
+function mapStateToProps(state) {
+	return { isLogin: !!state.user.token };
+}
 
-export default connect(null, { logout: action.logout })(Homepage);
+export default connect(mapStateToProps, { logout: action.logout })(Homepage);
