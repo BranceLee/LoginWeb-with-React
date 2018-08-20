@@ -7,7 +7,7 @@ import { signUp } from '../../actions/user';
 class SignUpPage extends Component {
 	state = {};
 
-	signUp = (user) => this.props.signUp(user).then(() => this.props.history.push('./dashboard'));
+	signUp = (user) => this.props.signUp(user).then(() => this.props.history.push('/'));
 
 	render() {
 		return (

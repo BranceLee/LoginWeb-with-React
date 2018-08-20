@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Feed, Segment, Icon, Divider, Breadcrumb, Form, Button, Container } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Feed, Segment, Icon, Divider, Breadcrumb, Form, Button, Container, Header, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { addComment, getComment } from '../../../../actions/comment';
 
@@ -121,6 +122,22 @@ class FeedbackForm extends Component {
 						icon="edit"
 					/>
 				</Form>
+				<Modal open={!!errors} basic size="small" onClose={() => this.setState({ errors: '' })}>
+					<Header icon="archive" content="Login" />
+					<Modal.Content>
+						<p>Please log in your account before addding the reply .</p>
+					</Modal.Content>
+					<Modal.Actions>
+						<Button basic color="red" inverted onClick={() => this.setState({ errors: '' })}>
+							<Icon name="remove" /> Close
+						</Button>
+						<Link to="/login">
+							<Button color="green" inverted>
+								<Icon name="user" /> Login
+							</Button>
+						</Link>
+					</Modal.Actions>
+				</Modal>
 			</div>
 		);
 	}

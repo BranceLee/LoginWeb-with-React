@@ -13,6 +13,7 @@ class LoginLeftLayout extends Component {
 			<div className="loginLeft">
 				<div className="loginLeftContainer">
 					<Container>
+						<h1>榜单推荐</h1>
 						<Item.Group>
 							{this.state.data.map((item, key) => (
 								<Segment key={key} style={{ margin: 0 }}>

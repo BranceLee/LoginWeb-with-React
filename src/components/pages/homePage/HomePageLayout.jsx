@@ -5,6 +5,7 @@ import { Segment, Grid } from 'semantic-ui-react';
 import FeedbackForm from './homePageLayout/FeedbackForm';
 import BookLibrary from './homePageLayout/BookLibray';
 import BookContent from './homePageLayout/BookContent';
+import LoginLeftLayout from '../../login/LoginLeftLayout';
 
 class HomePageLayout extends Component {
 	state = {};
@@ -26,6 +27,7 @@ class HomePageLayout extends Component {
 				</Segment>
 				<BookContent />
 				<BookLibrary />
+				<LoginLeftLayout />
 				<FeedbackForm />
 			</div>
 		);
