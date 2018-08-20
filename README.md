@@ -1,6 +1,7 @@
 ## 书单管理系统
-不多说直接上图，
+不多说直接上图，(gitf跳的有点快，Moji)
 
+![gift](https://github.com/BranceLee/LoginWeb-with-React/blob/master/gitft/Preview.gif)
 ## 项目功能
 
 - 账号注册与登录，记录用户账号信息，与MondoDB进行数据交互；
