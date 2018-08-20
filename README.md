@@ -1,5 +1,5 @@
 ## 书单管理系统
-上图，Gift较大，Loading，(gitf跳的有点快，Moji)
+上图，Gift较大，可能需要等待加载，Loading，(gitf跳的有点快，Moji)
 
 ![gift](https://github.com/BranceLee/LoginWeb-with-React/blob/master/gitft/Preview.gif)
 ## 项目功能
